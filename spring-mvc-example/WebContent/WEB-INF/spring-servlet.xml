@@ -26,7 +26,7 @@
 		destroy-method="close">
 		<beans:property name="driverClassName" value="com.mysql.jdbc.Driver" />
 		<beans:property name="url"
-			value="jdbc:mysql://localhost:3306/world" />
+			value="jdbc:mysql://localhost:3306/test" />
 		<beans:property name="username" value="root" />
 		<beans:property name="password" value="root" />
 	</beans:bean>
@@ -37,6 +37,7 @@
 		<beans:property name="annotatedClasses">
 			<beans:list>
 				<beans:value>com.employeeManagement.spring.model.User</beans:value>
+				<beans:value>com.employeeManagement.spring.model.Registration</beans:value>
 			</beans:list>
 		</beans:property>
 		<beans:property name="hibernateProperties">
@@ -54,6 +55,13 @@
 	</beans:bean>
 	
 	<beans:bean id="userDAO" class="com.employeeManagement.spring.daoImpl.UserDaoImpl">
+		<beans:property name="sessionFactory" ref="hibernate4AnnotatedSessionFactory" />
+	</beans:bean>
+	<beans:bean id="registrationService" class="com.employeeManagement.spring.serviceImpl.RegistrationServiceImpl">
+		<beans:property name="registrationDAO" ref="registrationDAO"></beans:property>
+	</beans:bean>
+	
+	<beans:bean id="registrationDAO" class="com.employeeManagement.spring.daoImpl.RegistrationDaoImpl">
 		<beans:property name="sessionFactory" ref="hibernate4AnnotatedSessionFactory" />
 	</beans:bean>
 	

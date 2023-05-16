@@ -41,9 +41,7 @@ public class HomeController {
 	public String user(@Validated User user, Model model) {
 		System.out.println("User Page Requested");
 		model.addAttribute("userName", user.getUserName());
-		if(0 == user.getId()) {
-			user.setId(new Random().nextInt(50000));
-		}
+		
 		userService.addPerson(user);
 		return "user";
 	}

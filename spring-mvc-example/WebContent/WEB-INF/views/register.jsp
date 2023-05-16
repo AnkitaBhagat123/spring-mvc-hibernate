@@ -10,8 +10,12 @@
 	<h1>Registration Page</h1>
 
 	<form action="add" method="post">
-		<input type="text" name="firstName"><br> 
-		<input type="submit" value="Register">
+	    <!-- <input type="text" name="id"><br> -->
+		<input type="text" name="firstName"><br>
+		<input type="text" name="lastName"><br>
+		<input type="text" name="address"><br>
+		<input type="text" name="mobileNo"><br>
+		 <input type="submit" value="Register">
 	</form>
 </body>
 </html>

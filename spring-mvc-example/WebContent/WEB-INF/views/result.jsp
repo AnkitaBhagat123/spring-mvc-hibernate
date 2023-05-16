@@ -7,6 +7,11 @@
 <title>Result Page</title>
 </head>
 <body>
-<h3>Hi ${regObj.firstName}</h3>
+<%-- <h3> RegistrationId: ${regObj.id}</h3> --%>
+<h3> FirstName: ${regObj.firstName}</h3>
+<h3> LastName: ${regObj.lastName}</h3>
+<h3> Address: ${regObj.address}</h3>
+<h3> MobileNo: ${regObj.mobileNo}</h3>
+
 </body>
 </html>

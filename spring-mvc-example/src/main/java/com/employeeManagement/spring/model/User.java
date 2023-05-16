@@ -13,7 +13,7 @@ public class User {
 	
 	@Id
 	@Column(name="id")
-	@GeneratedValue(strategy=GenerationType.AUTO)
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int id;
 	
 	public int getId() {
@@ -33,4 +33,5 @@ public class User {
 	public void setUserName(String userName) {
 		this.userName = userName;
 	}
+	
 }
