@@ -64,6 +64,13 @@
 	<beans:bean id="registrationDAO" class="com.employeeManagement.spring.daoImpl.RegistrationDaoImpl">
 		<beans:property name="sessionFactory" ref="hibernate4AnnotatedSessionFactory" />
 	</beans:bean>
+	<beans:bean id="loginService" class="com.employeeManagement.spring.serviceImpl.LoginServiceImpl">
+		<beans:property name="loginDAO" ref="loginDAO"></beans:property>
+	</beans:bean>
+	
+	<beans:bean id="loginDAO" class="com.employeeManagement.spring.daoImpl.LoginDaoImpl">
+		<beans:property name="sessionFactory" ref="hibernate4AnnotatedSessionFactory" />
+	</beans:bean>
 	
 	<tx:annotation-driven transaction-manager="transactionManager"/>
 	

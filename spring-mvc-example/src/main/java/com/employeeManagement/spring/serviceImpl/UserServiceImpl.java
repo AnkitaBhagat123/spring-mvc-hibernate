@@ -19,6 +19,9 @@ public class UserServiceImpl implements UserService {
 	public void setUserDAO(UserDao userDAO) {
 		this.userDAO = userDAO;
 	}
+	/*
+	 * public User validateUser(User user) { return userDao.validateUser(user); }
+	 */
 
 	@Override
 	@Transactional
