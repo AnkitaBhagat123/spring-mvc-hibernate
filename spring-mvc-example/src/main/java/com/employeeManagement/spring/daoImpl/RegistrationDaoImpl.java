@@ -33,4 +33,12 @@ private static final Logger logger = LoggerFactory.getLogger(RegistrationDaoImpl
 		
 	}
 
+@Override
+	public void editRegistrationBYId(Registration registration) {
+		Session session = this.sessionFactory.getCurrentSession();
+		session.persist(registration);
+		logger.info("Registration saved successfully, Registration Details="+registration);
+		
+	}
+
 }

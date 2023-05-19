@@ -6,6 +6,7 @@ import org.hibernate.Query;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Repository;
+import org.springframework.util.CollectionUtils;
 
 import com.employeeManagement.spring.dao.LoginDao;
 import com.employeeManagement.spring.model.Login;
@@ -21,16 +22,25 @@ private static final Logger logger = LoggerFactory.getLogger(RegistrationDaoImpl
 	}
 
 	@Override
-	public void addLogin(Registration login) {
+	public String addLogin(Registration login) {
 		Session session = this.sessionFactory.getCurrentSession();
 		
 		
-		Query query = session.createQuery("SELECT u.userName FROM registration u WHERE u.userName=:userName");
+		Query query = session.createQuery("SELECT u.userName FROM Registration u WHERE u.userName=:userName");
 	 query.setParameter("userName", login.getUserName());
-	System.out.println(query.uniqueResult());
+		/* System.out.println(query.uniqueResult()); */
+	 return (String)query.uniqueResult();
 	
-	}
+	/*
+	 * Query query1=session.
+	 * createQuery("select u.password from Registration u where u.password=:password"
+	 * );
+	 * 
+	 * System.out.println(query1.uniqueResult());
+	 */
 }
+}
+	
 
 
 

@@ -5,7 +5,7 @@ import com.employeeManagement.spring.model.Registration;
 
 
 public interface LoginService {
-	public void addLogin(Registration login);
+	public String addLogin(Registration login);
 	
 	
 	

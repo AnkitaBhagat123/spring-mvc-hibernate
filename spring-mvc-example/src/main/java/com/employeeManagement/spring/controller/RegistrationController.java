@@ -12,9 +12,11 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.employeeManagement.spring.model.Login;
 import com.employeeManagement.spring.model.Registration;
@@ -65,12 +67,49 @@ public class RegistrationController {
 		return "login";
 	}
 	@RequestMapping(value="/verifylogin" ,method=RequestMethod.POST)
-	public String login(@Validated Registration login,Model model)
+	public ModelAndView login(@Validated Registration login,Model model)
 	{
+		
+		
+		
 		System.out.println("Login Page Requested");
 		model.addAttribute("logObj", login);
-		loginService.addLogin(login);
-		return "sucess";
+		String userName = loginService.addLogin(login);
+		//String password=loginService.addLogin(login);
+		if(null != userName) {
+			model.addAttribute("userName",login.getUserName());
+			model.addAttribute("password", login.getPassword());
+//			loginService.addLogin(login);
+			
+			return new ModelAndView( "sucess");
+		}else {
+			
+			
+			return new ModelAndView( "error");
+		}
+			
+		
+		@RequestMapping(value="/registrationreport", method=RequestMethod.GET)
+		public String getAllReg(Locale locale, Model model)
+	}
+	@RequestMapping(value = "/editregistration", method = RequestMethod.GET)
+	public String editregistration(Locale locale, Model model) {
+		
+		return "register";
+	}
+	
+	
+	
+
+	@RequestMapping(value = "/edit", method = RequestMethod.POST)
+	public String editregistration(@Validated Registration registration, Model model) {
+		System.out.println("Registration Page Requested");
+		model.addAttribute("regObj", registration);
+		
+		
+		registrationService.addRegister(registration);
+		return "result";
+		
 	}
 	
 }

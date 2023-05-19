@@ -4,12 +4,11 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Sucess page</title>
+<title>Insert title here</title>
 </head>
 <body>
-<%-- <h3> UserName: ${logObj.userName}</h3>
-<h3> Password: ${logObj.password}</h3>  --%>
-<h1>Login Sucessfull</h1>
-
+<div align="center">
+  <h1>You have logined successfully</h1>
+ </div>
 </body>
 </html>

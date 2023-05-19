@@ -20,8 +20,9 @@ public class LoginServiceImpl implements LoginService{
 
 	@Override
 	@Transactional
-	public void addLogin(Registration login) {
-		getLoginDAO().addLogin(login);
+	public String addLogin(Registration login) {
+		return getLoginDAO().addLogin(login);
+		
 		
 	}
 
