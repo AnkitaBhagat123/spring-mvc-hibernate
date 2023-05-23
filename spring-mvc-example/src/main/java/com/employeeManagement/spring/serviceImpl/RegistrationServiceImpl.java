@@ -29,31 +29,48 @@ public class RegistrationServiceImpl implements RegistrationService{
 		this.registrationDAO = registrationDAO;
 	}
 
-	@Override
-	@Transactional
-	public void editRegister(Registration registration) {
 	
-		getRegistrationDAO().editRegistrationBYId(registration);;
-		
-	}
+	/*
+	 * @Override
+	 * 
+	 * @Transactional public void editRegister(int id) {
+	 * 
+	 * getRegistrationDAO().editRegistrationBYId(id);
+	 * 
+	 * }
+	 */
 	public RegistrationDao editRegisterDAO() {
 		return registrationDAO;
 	}
 
-	public void seteditRegisterDAO(RegistrationDao registrationDAO) {
-		this.registrationDAO = registrationDAO;
-	}
+	
 
 	@Override
+	@Transactional
 	public List<Registration> getAllReg() {
-		// TODO Auto-generated method stub
-		return null;
+		
+		return registrationDAO.getAllReg();
 	}
 
 	@Override
-	public void deleteRegistration(String userName) {
-		// TODO Auto-generated method stub
+	@Transactional
+	public void deleteRegistration(int id) {
+		registrationDAO.deleteRegistration(id);
+	}
+
+	@Override
+	public Registration getById(int id) {
+	return	null;
 		
 	}
+
+	@Override
+	@Transactional
+	public void editRegister(Registration reg) {
+		
+		registrationDAO.getAllReg();
+	}
+
+	
 }
 	

@@ -12,7 +12,9 @@ public interface RegistrationDao {
 	@Transactional
 	public void editRegistrationBYId(Registration registration);
 	@Transactional
-	public void deleteRegistration(String userName);
+	public void deleteRegistration(int id);
+	Registration getRegById(int id);
+	void editRegistrationBYId(int id);
 	
 
 }

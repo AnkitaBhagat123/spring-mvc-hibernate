@@ -1,48 +1,48 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<!DOCTYPE html>
+    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
-<meta charset="UTF-8">
-<title>Registration Report</title>
-<h1>Registration Page</h1>
-
-	<form action="addReport" method="post">
-	<th>
-	<thread>
-	<tr>
-	
-	<th scope="col">userName</th>
-	<th scope="col">firstName</th>
-	<th scope="col">lastName</th>
-	<th scope="col">doj</th>
-	<th scope="col">address</th>
-	<th scope="col">mobileNo</th>
-	<th scope="col">password</th>
-	<th scope="col">Edit</th>
-	<th scope="col">Delete</th>
-	</tr>
-	</thread>
-	
-	<c:forEach var="registration" items="&{registration}">
-	<tr>
-	
-	<td> $ {rObj.userName}</td>
-	<td> $ {rObj.firstName}</td>
-	<td> $ {rObj.lastName}</td>
-	<td> $ {rObj.doj}</td>
-	<td> $ {rObj.address}</td>
-	<td> $ {rObj.mobileNo}</td>
-	<td> $ {rObj.password}</td>
-	<td><a=href="editRegistration/${rObj.edit}"></a>
-	Edit </a></td>
-	<td><a=href="deleteRegistration/${rObj.delete}"></a>
-	Delete </a></td>
-	</tr>
-	</c:forEach>
-	
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Registration List</title>
 </head>
 <body>
 
+	<h3>Registration List</h3>
+	<form action="registrationreport" method="get">
+	<table border="1" cellpadding="2" cellspacing="2">
+		<tr>
+		<th> Id </th>
+			<th>UserName</th>
+			<th>FirstName</th>
+			<th>LastName</th>
+			<th>Doj</th>
+			<th>Address</th>
+			<th>MobileNo</th>
+			<th>Password</th>
+			
+		</tr>
+	
+	<c:forEach var="rObj" items="${listRegistration}">
+	<tr>
+	           <td>${rObj.id}</td>
+	           <td>${rObj.userName}</td>
+				<td>${rObj.firstName }</td>
+				<td>${rObj.lastName }</td>
+				<td>${rObj.doj }</td>
+				<td>${rObj.address}</td>
+				<td>${rObj.mobileNo}</td>
+				<td>${rObj.password}</td>
+				
+			<td>	<a href="editRegistration/${rObj.id}">Edit</a><br></td>
+	          <td><a href="deleteRegistration/${rObj.id}">Delete</a><br> </td>
+	</tr>
+			</tr>
+		</c:forEach>
+		</form>
+	</table>
+
 </body>
 </html>
+	
+	

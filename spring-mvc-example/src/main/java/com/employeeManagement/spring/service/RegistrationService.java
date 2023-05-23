@@ -13,8 +13,10 @@ public interface RegistrationService {
 	
 	public void addRegister(Registration registration);
 	public List<Registration>getAllReg();
-    public void editRegister(Registration registration);
-    public void deleteRegistration(String userName);
+	public Registration getById(int id);
+    public void deleteRegistration(int id);
+	public void editRegister(Registration reg);
+	
 	
 
 }

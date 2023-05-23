@@ -7,7 +7,7 @@
 <title>Edit Registration Form</title>
 </head>
 <body>
-<form action="edit" method="post">
+<form action="editRegistration" method="get">
 	<table style="with:10%">
 	
 	    <!-- <input type="text" name="id"><br> -->
@@ -42,7 +42,7 @@
 		
 		
 		</table>
-		 <input type="submit" value="Edit">
+		 <input type="submit" value="Submit">
 	</form>
 </body>
 </html>
